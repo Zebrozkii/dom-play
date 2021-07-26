@@ -1,1 +1,49 @@
-<h1>stuff</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="mainStylesheet" rel="stylesheet" href="styles/style.css" />
+    <title>Dom Play</title>
+</head>
+<body>
+    <h1>SpongeBob!</h1>
+    <div id="play">
+        <p><span data-actor="SpongeBob_SquarePants">SpongeBob: All right, Pinhead. Your time is up. </span></p>
+        <p><span data-actor="Patrick">Patrick: Who are you calling Pinhead? I wanna be Dirty Dan. </span></p>
+        <p><span data-actor="SpongeBob_SquarePants">SpongeBob: What makes you think you can be Dirty Dan? </span></p>
+        <p><span data-actor="Patrick">Patrick: I'm dirty.</span></p>
+        <p><span data-actor="Sandy">Sandy: Which one of you are the real Dirty Dan?</span></p>
+        <p><span data-actor="Patrick">Patrick: Uh I am?</span></p>
+        <p><span data-actor="Sandy">Sandy: AAARRRGGGG!! (punches Patrick)</span></p>
+    </div>
+    <img src="images/patrick.jpg">
+<script>
+    const spans = document.querySelectorAll('div#play span');
+
+    console.log(spans);
+
+    for(const mySpan of spans){
+        mySpan.addEventListener('click', function(ev){
+            // alert(mySpan.dataset.actor);
+            highlightActor(mySpan.dataset.actor);
+        });
+    }
+
+
+    function highlightActor(myActor){
+        for(const mySpan of spans){
+            if(myActor == mySpan.dataset.actor){
+                mySpan.style.backgroundColor='yellow';
+            }else{
+                mySpan.style.backgroundColor='white';
+            }
+        }
+    }
+</script>
+</body>
+</html>
